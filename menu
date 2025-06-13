@@ -1,12 +1,18 @@
-import variables
-
-try:
-    print('Bienvenido al registro de Vida y Salud 💊🏥')
-    print()
-    print('''  Menú de registo:
+print('Bienvenido al registro de Vida y Salud 💊🏥')
+print()
+while True:
+    try:
+        print('''  Menú de registo:
 Opción [1].- Grabar (Registrar datos)
 Opción [2].- Buscar (Filtrar por rut)
 Opción [3].- Imprimir Certificados (Costo entre $1.000 y $1.500)
 Opción [4].- Salir del programa''')
-except Exception as e:
-    print(f'Error inesperado: {e}')
+        opcion= int(input('\nIngrese un número del menú: '))
+        while opcion not in [1,2,3,4]:
+            print('Opción incorrecta. Sólo se puede del 1 al 4.')
+            opcion= int(input('\nIngrese un número del menú: '))
+    except ValueError:
+        print('\nDato incorrecto, debe ingresar sólo números.\n')
+    except Exception as e:
+        print(f'Error inesperado: {e}\n')
+
