@@ -1,0 +1,7 @@
+rut = []
+nombre=[]
+apellido_paterno=[]
+edad=[]
+estado_civil=[]
+genero=[]
+fecha_afiliacion=[]
