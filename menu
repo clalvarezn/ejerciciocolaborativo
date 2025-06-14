@@ -1,5 +1,13 @@
 import variables
 
+datosclientes = {"rut" : [],
+                 "nombre" : [],
+                 "apellido_paterno": [],           
+                 "edad" : [],
+                 "estado_civil" : [],
+                 "genero": [],
+                 "fecha_afiliacion": []}
+
 print('Bienvenido al registro de Vida y Salud 💊🏥')
 print()
 while True:
@@ -16,17 +24,130 @@ Opción [4].- Salir del programa''')
         if opcion==1:
             print('\nAhora necesita completar los siguientes datos: ')
             while True:
-                rut2 = input('Ingrese su rut, sin puntos y sin guión: ')
+                rut2 = input('\nIngrese su rut, sin puntos y sin guión: ')
                 length = len(rut2)
                 if length in [8, 9]:
-                    print("RUT aceptado.")
+                    print("\nRUT aceptado.")
+                    datosclientes["rut"] = rut2
+                    print(datosclientes)
                     break
                 else:
                     print('Rut incorrecto, debe ingresar al menos 8 o máximo 9 caracteres.')
+            while True:
+                nombre2= input('\nIngrese su nombre SIN APELLIDO: ')
+                r1=int(input(f'El nombre ingresado es {nombre2}.\nConfirme presionando [1] si no aprete cualquier tecla: '))
+                if r1==1:
+                    break
+            while True:
+                try:
+                    edad2 = int(input('Ingrese su edad: '))
+                    while edad2<18:
+                        print('\nNO PUEDES SER MENOR DE EDAD. VUELVA A INTENTAR.\n')
+                        edad2 = int(input('Ingrese su edad: '))
+                    break
+                except ValueError:
+                    print('\nDato incorrecto, debe ingresar sólo números.\n')
+            while True:
+                apellido2= input('\nIngrese su apellido paterno: ')
+                r2=int(input(f'El apellido ingresado es {apellido2}.\nConfirme presionando [1] si no aprete cualquier tecla: '))
+                if r2==1:
+                    break
+            while True:
+                try:
+                    genero2= int(input('''Indique su género: 
+[1] Masculino.
+[2] Femenino.
+[3] No-binario.
+[4] Otro.'''))
+                    match genero2:
+                        case 1:
+                            genero2 = 'Masculino'
+                            break
+                        case 2:
+                            genero2= 'Femenino'
+                            break
+                        case 3:
+                            genero2= 'No binario'
+                            break
+                        case 4:
+                            while True:
+                                try:
+                                    genero2= input('Indique su género: ')
+                                    r3= int(input(f'Usted ingresó {genero2}.\nConfirme presionando [1] si no aprete cualquier tecla: '))
+                                    if r3==1:
+                                        break
+                                except ValueError:
+                                    print('\nDato incorrecto, debe ingresar sólo números.\n')
+                        case _:
+                            print('No existe la opción.')
+                except ValueError:
+                    print('\nDato incorrecto, debe ingresar sólo números.\n')
+            while True:
+                try:
+                    estado_civil2=int(input('''Ingrese su estados civil:
+[1] Casado.
+[2] Soltero.
+[3] Viudo.'''))
+                    match estado_civil2:
+                        case 1:
+                            estado_civil2= 'C'
+                            break
+                        case 2:
+                            estado_civil2= 'S'
+                            break
+                        case 3:
+                            estado_civil2= 'V'
+                            break
+                        case _:
+                            print('No existe esa opción.')
+                except ValueError:
+                    print('\nDato incorrecto, debe ingresar sólo números.\n')
+            while True:
+                try:
+                    fecha_afiliacion2_dia = int(input('Ingrese el día de ingreso en números DD: '))
+                    if not 1 <= fecha_afiliacion2_dia <= 31:
+                        print("Día inválido. Debe estar entre 1 y 31.")
+                        continue
+                    if len(str(fecha_afiliacion2_dia)) == 1:
+                        fecha_afiliacion2_dia = '0' + str(fecha_afiliacion2_dia)
+                    else:
+                        fecha_afiliacion2_dia = str(fecha_afiliacion2_dia)
+                    fecha_afiliacion2_mes = int(input('Ingrese el mes de ingreso en números MM: '))
+                    if not 1 <= fecha_afiliacion2_mes <= 12:
+                        print("Mes inválido. Debe estar entre 1 y 12.")
+                        continue
+                    if len(str(fecha_afiliacion2_mes)) == 1:
+                        fecha_afiliacion2_mes = '0' + str(fecha_afiliacion2_mes)
+                    else:
+                        fecha_afiliacion2_mes = str(fecha_afiliacion2_mes)
+                    fecha_afiliacion2_anno = int(input('Ingrese el año de ingreso en números AAAA: '))
+                    if len(str(fecha_afiliacion2_anno)) != 4:
+                        print("Año inválido. Debe tener 4 dígitos.")
+                        continue
+                    fecha_afiliacion2_anno = str(fecha_afiliacion2_anno)
+                    break
+                except ValueError:
+                    print('\nDato incorrecto, debe ingresar sólo números.\n')
+            fecha_afiliacion2 = f"{fecha_afiliacion2_dia}/{fecha_afiliacion2_mes}/{fecha_afiliacion2_anno}"
+
+
     except ValueError:
         print('\nDato incorrecto, debe ingresar sólo números.\n')
     except Exception as e:
         print(f'Error inesperado: {e}\n')
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
