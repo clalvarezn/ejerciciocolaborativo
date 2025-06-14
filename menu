@@ -1,5 +1,3 @@
-import variables
-
 datosclientes = {"rut" : [],
                  "nombre" : [],
                  "apellido_paterno": [],           
@@ -26,9 +24,9 @@ Opción [4].- Salir del programa''')
             while True:
                 rut2 = input('\nIngrese su rut, sin puntos y sin guión: ')
                 length = len(rut2)
-                if length in [8, 9]:
+                if length in [9,10]:
                     print("\nRUT aceptado.")
-                    datosclientes["rut"] = rut2
+                    datosclientes["rut"].append(rut2)
                     print(datosclientes)
                     break
                 else:
@@ -37,6 +35,7 @@ Opción [4].- Salir del programa''')
                 nombre2= input('\nIngrese su nombre SIN APELLIDO: ')
                 r1=int(input(f'El nombre ingresado es {nombre2}.\nConfirme presionando [1] si no aprete cualquier tecla: '))
                 if r1==1:
+                    datosclientes["nombre"].append(nombre2)
                     break
             while True:
                 try:
@@ -44,6 +43,7 @@ Opción [4].- Salir del programa''')
                     while edad2<18:
                         print('\nNO PUEDES SER MENOR DE EDAD. VUELVA A INTENTAR.\n')
                         edad2 = int(input('Ingrese su edad: '))
+                    datosclientes["edad"].append(edad2)
                     break
                 except ValueError:
                     print('\nDato incorrecto, debe ingresar sólo números.\n')
@@ -51,6 +51,7 @@ Opción [4].- Salir del programa''')
                 apellido2= input('\nIngrese su apellido paterno: ')
                 r2=int(input(f'El apellido ingresado es {apellido2}.\nConfirme presionando [1] si no aprete cualquier tecla: '))
                 if r2==1:
+                    datosclientes["apellido_paterno"].append(apellido2)
                     break
             while True:
                 try:
@@ -62,12 +63,15 @@ Opción [4].- Salir del programa''')
                     match genero2:
                         case 1:
                             genero2 = 'Masculino'
+                            datosclientes["genero"].append(genero2)
                             break
                         case 2:
                             genero2= 'Femenino'
+                            datosclientes["genero"].append(genero2)
                             break
                         case 3:
                             genero2= 'No binario'
+                            datosclientes["genero"].append(genero2)
                             break
                         case 4:
                             while True:
@@ -75,6 +79,7 @@ Opción [4].- Salir del programa''')
                                     genero2= input('Indique su género: ')
                                     r3= int(input(f'Usted ingresó {genero2}.\nConfirme presionando [1] si no aprete cualquier tecla: '))
                                     if r3==1:
+                                        datosclientes["genero"].append(genero2)
                                         break
                                 except ValueError:
                                     print('\nDato incorrecto, debe ingresar sólo números.\n')
@@ -91,12 +96,15 @@ Opción [4].- Salir del programa''')
                     match estado_civil2:
                         case 1:
                             estado_civil2= 'C'
+                            datosclientes["estado_civil"].append(estado_civil2)
                             break
                         case 2:
                             estado_civil2= 'S'
+                            datosclientes["estado_civil"].append(estado_civil2)
                             break
                         case 3:
                             estado_civil2= 'V'
+                            datosclientes["estado_civil"].append(estado_civil2)
                             break
                         case _:
                             print('No existe esa opción.')
@@ -128,21 +136,14 @@ Opción [4].- Salir del programa''')
                     break
                 except ValueError:
                     print('\nDato incorrecto, debe ingresar sólo números.\n')
-            fecha_afiliacion2 = f"{fecha_afiliacion2_dia}/{fecha_afiliacion2_mes}/{fecha_afiliacion2_anno}"
+            fecha_afiliacion2 = f'{fecha_afiliacion2_dia}/{fecha_afiliacion2_mes}/{fecha_afiliacion2_anno}'
+            datosclientes["fecha_afiliacion"].append(fecha_afiliacion2)
 
 
     except ValueError:
         print('\nDato incorrecto, debe ingresar sólo números.\n')
     except Exception as e:
         print(f'Error inesperado: {e}\n')
-
-
-
-
-
-
-
-
 
 
 
