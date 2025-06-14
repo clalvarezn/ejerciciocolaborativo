@@ -1,4 +1,4 @@
-ULTIMA VERSIÓN REVISADA "ejerciciopruebarevisadov2.py"
+ULTIMA VERSIÓN REVISADA "ejercicioprueba_v3"
 
 
 Actividad Práctica Pre Evaluación
