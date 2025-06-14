@@ -11,8 +11,21 @@ Opción [4].- Salir del programa''')
         while opcion not in [1,2,3,4]:
             print('Opción incorrecta. Sólo se puede del 1 al 4.')
             opcion= int(input('\nIngrese un número del menú: '))
+        if opcion==1:
+            print('\nAhora necesita completar los siguientes datos: ')
+            while True:
+                rut2 = input('Ingrese su rut, sin puntos y sin guión: ')
+                length = len(rut2)
+                if length in [8, 9]:
+                    print("RUT aceptado.")
+                    break
+                else:
+                    print('Rut incorrecto, debe ingresar al menos 8 o máximo 9 caracteres.')
     except ValueError:
         print('\nDato incorrecto, debe ingresar sólo números.\n')
     except Exception as e:
         print(f'Error inesperado: {e}\n')
+
+
+
 
