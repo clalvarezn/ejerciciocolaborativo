@@ -1,7 +1,7 @@
 # Opcion 2
 
 
-if Opción == "2":
+elif opcion == "2":
     busqueda_rut = input("Ingrese el rut a buscar: ")
     encontrado = False
     for af in datosclientes:
